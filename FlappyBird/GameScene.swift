@@ -110,7 +110,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         bird = SKSpriteNode(texture: birdTexture1)
         //bird.setScale(2.0)
-        bird.setScale(0.5)
+        //MARK: Bird Scale
+        bird.setScale(0.35)
         bird.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
         bird.run(flap)
         
@@ -210,6 +211,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if moving.speed > 0  {
             for _ in touches { // do we need all touches?
                 bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                //bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
+                //MARK: Impluse amount
                 bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
             }
         } else if canRestart {
