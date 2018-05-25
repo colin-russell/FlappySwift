@@ -242,7 +242,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 bird.physicsBody?.collisionBitMask = worldCategory
                 bird.run(  SKAction.rotate(byAngle: CGFloat(Double.pi) * CGFloat(bird.position.y) * 0.01, duration:1), completion:{self.bird.speed = 0 })
                 
-                
+
                 // Flash background if contact is detected
                 self.removeAction(forKey: "flash")
                 self.run(SKAction.sequence([SKAction.repeat(SKAction.sequence([SKAction.run({
@@ -250,8 +250,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     }),SKAction.wait(forDuration: TimeInterval(0.05)), SKAction.run({
                         self.backgroundColor = self.skyColor
                         }), SKAction.wait(forDuration: TimeInterval(0.05))]), count:4), SKAction.run({
+                            // Put GameOver Screen Here
+                            
                             self.canRestart = true
                             })]), withKey: "flash")
+                
+                
+                
             }
         }
     }
