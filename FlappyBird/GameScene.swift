@@ -65,6 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let skyTexture = SKTexture(imageNamed: "sky")
         skyTexture.filteringMode = .nearest
         
+        
         let moveSkySprite = SKAction.moveBy(x: -skyTexture.size().width * 2.0, y: 0, duration: TimeInterval(0.1 * skyTexture.size().width * 2.0))
         let resetSkySprite = SKAction.moveBy(x: skyTexture.size().width * 2.0, y: 0, duration: 0.0)
         let moveSkySpritesForever = SKAction.repeatForever(SKAction.sequence([moveSkySprite,resetSkySprite]))
@@ -108,7 +109,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let flap = SKAction.repeatForever(anim)
         
         bird = SKSpriteNode(texture: birdTexture1)
-        bird.setScale(2.0)
+        //bird.setScale(2.0)
+        bird.setScale(0.5)
         bird.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
         bird.run(flap)
         
